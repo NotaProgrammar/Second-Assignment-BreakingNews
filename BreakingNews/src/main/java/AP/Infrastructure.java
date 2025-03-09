@@ -75,6 +75,18 @@ public class Infrastructure {
         // TODO: Display titles of the news you got from api
         //  and print them in a way that user can choose one
         //  to see the full information of the news
+        System.out.println("News of the Day");
+        System.out.println("-------------------------");
+        for(int i = 0; i < newsList.size(); i++) {
+           System.out.println(i+1 + ") " + newsList.get(i).title);
+           System.out.println(newsList.get(i).author);
+           System.out.println(newsList.get(i).description);
+           System.out.println(newsList.get(i).publishedAt);
+           System.out.println(newsList.get(i).Url);
+
+
+
+        }
     }
 
 }
