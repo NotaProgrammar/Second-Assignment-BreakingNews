@@ -20,6 +20,7 @@ public class Infrastructure {
         this.APIKEY = APIKEY;
         this.URL = "https://newsapi.org/v2/everything?q=tesla&from=2025-02-05&sortBy=publishedAt&apiKey=";
         this.JSONRESULT = getInformation();
+        parseInformation();
     }
 
     public ArrayList<News> getNewsList() {
@@ -52,6 +53,18 @@ public class Infrastructure {
         //  finally add them to newsList in this class to display them in the output
         try {
             JSONObject obj = new JSONObject(JSONRESULT);
+            JSONArray array = obj.getJSONArray("articles");
+            for (int i = 0; i < 20; i++) {
+                JSONObject article = array.getJSONObject(i);
+                News news = new News();
+                news.title = article.getString("title");
+                news.SourceName = article.getString("source");
+                news.author = article.getString("author");
+                news.description = article.getString("description");
+                news.publishedAt = article.getString("publishedAt");
+                news.Url = article.getString("url");
+                newsList.add(news);
+            }
         }
         catch (Exception e) {
             System.out.println("!!Exception : " + e.getMessage());
