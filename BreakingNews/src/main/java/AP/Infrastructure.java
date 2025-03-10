@@ -82,7 +82,7 @@ public class Infrastructure {
            System.out.println("-------------------------");
            System.out.println(i+1 + ") " + newsList.get(i).title);
         }
-        System.out.println("Choose the article you want to view:");
+        System.out.println("Choose the article you want to view (Enter -1 to exit) :");
     }
 
 }
