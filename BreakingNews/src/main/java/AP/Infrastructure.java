@@ -63,6 +63,8 @@ public class Infrastructure {
                 news.description = article.getString("description");
                 news.publishedAt = article.getString("publishedAt");
                 news.Url = article.getString("url");
+                JSONObject newsObj = article.getJSONObject("source");
+                news.SourceName = newsObj.getString("name");
                 newsList.add(news);
             }
         }
@@ -76,17 +78,11 @@ public class Infrastructure {
         //  and print them in a way that user can choose one
         //  to see the full information of the news
         System.out.println("News of the Day");
-        System.out.println("-------------------------");
         for(int i = 0; i < newsList.size(); i++) {
+           System.out.println("-------------------------");
            System.out.println(i+1 + ") " + newsList.get(i).title);
-           System.out.println(newsList.get(i).author);
-           System.out.println(newsList.get(i).description);
-           System.out.println(newsList.get(i).publishedAt);
-           System.out.println(newsList.get(i).Url);
-
-
-
         }
+        System.out.println("Choose the article you want to view:");
     }
 
 }
