@@ -1,6 +1,7 @@
 package AP;
 
 public class News {
+    //news class
     String title;
     String author;
     String description;

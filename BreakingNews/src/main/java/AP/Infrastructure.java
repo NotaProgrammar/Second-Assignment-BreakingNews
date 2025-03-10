@@ -13,20 +13,20 @@ public class Infrastructure {
     private final String URL;
     private final String APIKEY;
     private final String JSONRESULT;
-    private ArrayList<News> newsList = new ArrayList<News>(); // TODO: Create the News class
+    private ArrayList<News> newsList = new ArrayList<News>();
 
-
+    //constructor
     public Infrastructure(String APIKEY) {
         this.APIKEY = APIKEY;
         this.URL = "https://newsapi.org/v2/everything?q=tesla&from=2025-02-18&sortBy=publishedAt&apiKey=";
         this.JSONRESULT = getInformation();
         parseInformation();
     }
-
+    //this method returns the newsList to be used in another class
     public ArrayList<News> getNewsList() {
         return newsList;
     }
-
+    //this method gets the information from client and returns a string of JSON
     private String getInformation() {
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -46,7 +46,7 @@ public class Infrastructure {
         }
         return null;
     }
-
+    //this class creates a JSONObject from the clients response and parses its datas and maps them to News class
     private void parseInformation() {
         // TODO: Get the first 20 news from the articles array of the json result
         //  and parse the information of each on of them to be mapped to News class
@@ -71,7 +71,7 @@ public class Infrastructure {
             System.out.println("!!Exception : " + e.getMessage());
         }
     }
-
+    //shows the news from 1 to 20
     public void displayNewsList() {
         // TODO: Display titles of the news you got from api
         //  and print them in a way that user can choose one

@@ -8,6 +8,7 @@ public class Main {
         Infrastructure infrastructure = new Infrastructure("2a69589baf8b4a08bd98c80ad2e332d5");
         infrastructure.displayNewsList();
         System.out.println("-------------------------");
+        //getting newslist from infrastructure
         ArrayList<News> NewsList = infrastructure.getNewsList();
         Scanner scanner = new Scanner(System.in);
         while(true) {
